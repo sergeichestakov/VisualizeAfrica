@@ -60,9 +60,9 @@ var map = AmCharts.makeChart("chartdiv", {
   ]
   },
   "areasSettings": {
-  "autoZoom": true,
-  "selectedColor": "#CC0000",
-  "unlistedAreasAlpha": 0
+    "autoZoom": true,
+    "selectedColor": "#CC0000",
+    "unlistedAreasAlpha": 0
   },
   "listeners": [{
       "event": "clickMapObject",
@@ -70,16 +70,27 @@ var map = AmCharts.makeChart("chartdiv", {
       }],
   "dragMap": false,
   "zoomControl": {
-  "homeButtonEnabled": false,
-  "panControlEnabled": false,
-  "zoomControlEnabled": false,
-  "minZoomLevel": 2.7
-  }
+    "homeButtonEnabled": false,
+    "panControlEnabled": false,
+    "zoomControlEnabled": false,
+    "minZoomLevel": 2.7
+  },
+  "zoomOnDoubleClick": false
 });
 
 function clicked(event){
   var country = event.mapObject.title;
-  openNav();
+  document.getElementById("countryName").innerHTML = country;
+  $("#title").slideUp("slow");
+  document.getElementById("myNav").style.height = "100%";
+}
+
+/* Close */
+function zoomOut() {
+    document.getElementById("myNav").style.height = "0%";
+    map.selectObject(map.dataProvider);
+    map.fire({type: "homeButtonClicked", chart: map});
+    $("#title").slideDown("slow");
 }
 
 var btnRadius = $('.cd-modal-bg').width()/2,
@@ -91,18 +102,4 @@ function scaleValue( topValue, leftValue, radiusValue, windowW, windowH) {
 	var maxDistHor = ( leftValue > windowW/2) ? leftValue : (windowW - leftValue),
 		maxDistVert = ( topValue > windowH/2) ? topValue : (windowH - topValue);
 	return Math.ceil(Math.sqrt( Math.pow(maxDistHor, 2) + Math.pow(maxDistVert, 2) )/radiusValue);
-}
-
-//Full screen modal functions
-/* Open */
-function openNav() {
-  $("h1").slideUp("slow");
-  document.getElementById("myNav").style.height = "100%";
-}
-
-/* Close */
-function closeNav() {
-    document.getElementById("myNav").style.height = "0%";
-    map.zoomToLongLat(2.7, 24.0174, -1.1076);
-    $("h1").slideDown("slow");
 }
