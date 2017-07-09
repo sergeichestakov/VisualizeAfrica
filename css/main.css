@@ -3,6 +3,7 @@ html, body {
   height: 100%;
   margin: 0px;
   background-color: #536c77;
+  overflow: hidden;
 }
 
 #chartdiv {
@@ -11,13 +12,16 @@ html, body {
 }
 
 h1 {
-  font-size: 45px;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
   text-align: center;
   color: white;
 }
 
-/*Full screen */
+/*Full screen Modal*/
 
 /* The Overlay (background) */
 .overlay {
@@ -61,6 +65,11 @@ h1 {
     font-size: 60px;
 }
 
+.closebtn:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 @media screen and (max-height: 450px) {
   .overlay {overflow-y: auto;}
   .overlay a {font-size: 20px}
@@ -69,39 +78,4 @@ h1 {
     top: 15px;
     right: 35px;
   }
-}
-
-
-/*Modal at the bottom */
-.cd-modal-action {
-  position: relative;
-}
-.cd-modal-action .btn {
-  width: 12.5em;
-  height: 4em;
-  background-color: #123758;
-  border-radius: 5em;
-  transition: color 0.2s 0.3s, width 0.3s 0s;
-}
-.cd-modal-action .btn.to-circle {
-  width: 4em;
-  color: transparent;
-  transition: color 0.2s 0s, width 0.3s 0.2s;
-}
-.cd-modal-action .cd-modal-bg {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-2em);
-  width: 4em;
-  height: 4em;
-  background-color: #123758;
-  border-radius: 50%;
-  opacity: 0;
-  visibility: hidden;
-  transition: visibility 0s 0.5s;
-}
-.cd-modal-action .cd-modal-bg.is-visible {
-  opacity: 1;
-  visibility: visible;
 }
