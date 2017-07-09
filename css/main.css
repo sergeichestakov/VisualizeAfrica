@@ -41,14 +41,6 @@ h1 {
     overflow-y: hidden;
     transition: 0.5s;
 }
-/*
-.overlay-content {
-  position: relative;
-  top: 25%;
-  width: 100%;
-  text-align: center;
-  margin-top: 30px;
-}*/
 
 .overlay a:hover, .overlay a:focus {
     color: #f1f1f1;
@@ -61,9 +53,9 @@ h1 {
     font-size: 60px;
 }
 
-.closebtn:active {
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+.closebtn{
+  color: white;
+  text-decoration: none;
 }
 
 @media screen and (max-height: 450px) {

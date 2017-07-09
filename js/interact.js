@@ -78,52 +78,42 @@ var map = AmCharts.makeChart("chartdiv", {
   "zoomOnDoubleClick": false
 });
 
-var dataLoad = []
+var dataLoad = [];
 
 $.ajaxPrefilter( function (options) {
   if (options.crossDomain && jQuery.support.cors) {
     var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
     options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
-    //options.url = "http://cors.corsproxy.io/url=" + options.url;
   }
 });
 
 function loadGDP(name) {
-$.ajax(
-{
-   async:false,
-   type: "POST",
-   dataType: 'json',
-   url: "http://schedulehelper.info/africa/gdpJSON.py" ,
-   data: {country: name},
-   success: function(response)
-   {
-       dataLoad = response;
-       chart.dataProvider = dataLoad;
-       chart.validateData();
-       document.getElementById("gdpGraph").style.display = "block";
-   },
-   error: function(data)
-   {
-      //alert(data.responseText + "error");
-      document.getElementById("gdpGraph").style.display = "none";
-   },
-});
-
-
-
-
+  $.ajax(
+  {
+     async:false,
+     type: "POST",
+     dataType: 'json',
+     url: "http://schedulehelper.info/africa/gdpJSON.py" ,
+     data: {country: name},
+     success: function(response)
+     {
+         dataLoad = response;
+         chart.dataProvider = dataLoad;
+         chart.validateData();
+         document.getElementById("gdpGraph").style.display = "block";
+     },
+     error: function(data)
+     {
+        document.getElementById("gdpGraph").style.display = "none";
+     },
+  });
 }
 
 var chart = AmCharts.makeChart("gdpGraph", {
     "type": "serial",
-<<<<<<< HEAD
-    "theme": "light",
     "marginRight": 60,
-=======
     "theme": "dark",
     "marginRight": 40,
->>>>>>> 9efee159856d2eeda1763ceb9191273cc66698e3
     "marginLeft": 60,
     "autoMarginOffset": 20,
     "mouseWheelZoomEnabled":false,
