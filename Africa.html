@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <!--For the GDP Chart-->
+    <script src="js/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+
+    <!--For the Map of Africa-->
     <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
     <script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
     <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/interact.js"></script>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
+
     <title>Visualize Africa</title>
   </head>
   <body>
@@ -21,11 +30,10 @@
       <!-- Overlay content -->
       <div class="overlay-content">
         <h1 id="countryName"></h1>
+        <div id="gdpGraph"></div>
       </div>
 
     </div>
-
-
 
   </body>
 </html>
