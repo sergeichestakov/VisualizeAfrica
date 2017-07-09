@@ -78,28 +78,7 @@ var map = AmCharts.makeChart("chartdiv", {
   "zoomOnDoubleClick": false
 });
 
-var data = [{
-    "year": "2003",
-    "gdp": "14956"
-}, {
-    "year": "2004",
-    "gdp": "19775"
-}, {
-    "year": "2005",
-    "gdp": "30632"
-}, {
-    "year": "2006",
-    "gdp": "45163"
-}, {
-    "year": "2007",
-    "gdp": "59263"
-}, {
-    "year": "2008",
-    "gdp": "4"
-}, {
-    "year": "2009",
-    "gdp": "4"
-}]
+var dataLoad = []
 
 $.ajaxPrefilter( function (options) {
   if (options.crossDomain && jQuery.support.cors) {
@@ -108,8 +87,6 @@ $.ajaxPrefilter( function (options) {
     //options.url = "http://cors.corsproxy.io/url=" + options.url;
   }
 });
-
-var dataLoad = null;
 
 function loadGDP(name) {
 $.ajax(
