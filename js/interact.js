@@ -81,8 +81,8 @@ var map = AmCharts.makeChart("chartdiv", {
 var chart = AmCharts.makeChart("gdpGraph", {
     "type": "serial",
     "theme": "light",
-    "marginRight": 40,
-    "marginLeft": 40,
+    "marginRight": 60,
+    "marginLeft": 60,
     "autoMarginOffset": 20,
     "mouseWheelZoomEnabled":false,
     "dataDateFormat": "YYYY-MM-DD",
